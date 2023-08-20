@@ -1,3 +1,6 @@
+//altera as cores dos botões das respostas das questões de acordo com o gabarito,
+//apesar da alteração estar ocorrendo de forma correta, devido ao tempo apertado
+//não foi possível implementar o retorno as questões após escolher uma das alternativas atraves da navegação
 export function mostraResposta(key) {
 
     var aBotao, bBotao, cBotao, dBotao

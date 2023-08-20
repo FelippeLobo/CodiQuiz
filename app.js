@@ -80,33 +80,33 @@ function addCode(key, resposta, acerto) {
 }
 window.addCode = addCode;
 
+//relaciona o nome do jogador com o objeto quiz preenchido até aqui, entao o adiciona na lista de placarez.
 function adicionaJogador() {
     let nome = document.getElementById("nome").value;
-    console.log("add" + nome);
-    console.log(document.getElementById("nome"));
     quiz.setNome(nome);
     placaresQuiz.push(quiz);
 
 }
 window.adicionaJogador = adicionaJogador;
 
+//Atualiza a tabela de placares a partir das informações adicionadas na lista placaresQuiz, 
+//É feito inicialmente uma limpeza na tabela anterior, entao uma ordenação com base no numero de acertos de cada jogador,
+//jogares sem nomes não são considerados, entao é criado um objeto tr (table row) para cada jogador e adicionado na tabela
 function atualizaPlacar() {
 
     clearBox("tabelaPlacar");
 
-    console.log(placaresQuiz);
-    placaresQuiz.sort(function (a, b) { return a.checkRespostas() - b.checkRespostas() });
-    console.log(placaresQuiz);
+    placaresQuiz.sort(function (a, b) { return b.checkRespostas() - a.checkRespostas() });
+
     
     for (let index = 0; index < placaresQuiz.length; index++) {
         const element = placaresQuiz[index];
         let nome = element.getNome();
-        console.log(nome);
+       
         if (nome != "") {
             let acertos = element.checkRespostas();
             let porcetagemAcertos = ((acertos / 12) * 100).toFixed(2);
-            console.log(acertos);
-            console.log(porcetagemAcertos);
+       
             let row = document.createElement("tr");
 
             let cell0 = document.createElement("td");
@@ -142,7 +142,7 @@ function atualizaPlacar() {
 }
 window.atualizaPlacar = atualizaPlacar;
 
-
+//função auxiliar para limpar o conteudo interno de uma div ou qualquer tag html a partir do seu id
 function clearBox(elementID) {
     document.getElementById(elementID).innerHTML = "";
 }
