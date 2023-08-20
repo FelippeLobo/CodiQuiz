@@ -1,6 +1,6 @@
 //altera as cores dos botões das respostas das questões de acordo com o gabarito,
 //apesar da alteração estar ocorrendo de forma correta, devido ao tempo apertado
-//não foi possível implementar o retorno as questões após escolher uma das alternativas atraves da navegação
+//não foi possível implementar o retorno as questões após escolher uma das alternativas atraves da tag de navegação
 export function mostraResposta(key) {
 
     var aBotao, bBotao, cBotao, dBotao
@@ -92,6 +92,12 @@ export function mostraResposta(key) {
     }
 
 }
+
+//retorna para cada pergunta seu grupo de tags html para auxiliar na clareza do código no arquivo index.html,
+//a função é basicamente um switch case em que a chave é o numero da questão pretendida, cada questão possui em seus
+//botoes de respostas uma chamada para o addCode() apontando para a proxima pergunta, enviando também informações importantes
+//como se o botao selecionado é o correto e também qual resposta foi selecionada.
+//também se encontram aqui as tags da tela inicial do modal do quiz e a tela final.
 export function retornaPergunta(key) {
 
     switch (key) {
@@ -99,7 +105,7 @@ export function retornaPergunta(key) {
             let p =
                 "<div id=\"inicio\" class=\"row\">" + '\n' +
                 "<div class=\"col align-self-center perguntas\">" + '\n' +
-                "<h4>Parabéns por chegar até aqui</h4>" + '\n' +
+                "<h4>Parabéns por chegar até aqui!</h4>" + '\n' +
                 " <br>" + '\n' +
                 "<p>Sua pontuação final foi:</p>" + '\n' +
                 "<h1 id=\"pontuacao\"><b>12/12</b> (100)</h1>" + '\n' +
